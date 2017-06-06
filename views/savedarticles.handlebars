@@ -1,0 +1,30 @@
+
+<div class="container">
+        <div class="container-fluid">
+            <div class="row subject-page-title">{{pageTitle}}</div>
+            <div class="row">
+   
+            {{#each articles}}  
+                        <div id="article" class="subject-article-box animated">
+                            <a href="{{this.link}}" target="_blank" class="subject-article-link">
+                                <img src="{{this.imageUrl}}" class="subject-article-img">
+                                <p class="subject-article-description">{{this.title}}</p> 
+                            </a>
+                            <div class="subject-article-like-box">
+                                <a href="/save/{{@index}}">
+                                    <img class="subject-article-like" src="http://www.freeiconspng.com/uploads/heart-png-15.png"/>
+                                </a>
+                            </div>  
+                        </div> 
+                        {{!--<div class="subject-article-like-box"  >
+                            <form action="/save" method="POST">                      
+                                <input type="hidden" id="title" value="{{title}}">
+                                <input type="hidden" id="link" value="{{link}}">
+                                <input type="hidden" id="imageUrl" value="{{imageUrl}}">
+                                <button type="submit" id="saveArticle" class="btn btn-warning" style="margin-left: 15px;">Save</button>
+                            </form>     
+                        </div>  --}}
+              {{/each}}   
+    </div>
+</div>
+ 

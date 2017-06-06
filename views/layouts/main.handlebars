@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<title>Mongo Scraper</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua" rel="stylesheet"> -->
+		<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<!-- Stylesheet -->
+        {{!--<link rel="stylesheet" type="text/css" href="/assets/css/style.css"> --}}
+        <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
+		<link rel="stylesheet" type="text/css" href="/assets/css/stylesheet.css">
+		
+</head>
+  <body class="container-fluid body">
+        <!-- Navbar start-->
+        <div class="row navigation mongoScraperBar">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs navbar-inverse">
+                        <li style="margin-left:10px;">
+                                <a href="/" style="cursor:pointer;">
+                                    <span class="logo-title"> Mongo Scraper</span>
+                                </a>
+                        </li>
+
+                        <!-- modal start-->
+                        <li class="dropdown pull-right">
+                            <div class="row">
+                                <div class="col-md-12">
+                                        <a  href="/scrape" role="button" class="btn signup" >
+                                            Scrape Articles
+                                        </a>
+                                        <a href="/savedarticles" role="button" class="btn signup">
+                                            My Saved Articles
+                                        </a>
+                                        {{!--<a id="modal-783743" href="#modal-container-783743" role="button" class="btn signup" data-toggle="modal">
+                                            Saved Articles
+                                        </a>--}}
+                                        <div class="modal fade" id="modal-container-783743" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                                    ×
+                                                                </button>
+                                                                    <h4 class="modal-title" id="myModalLabel">
+                                                                            Sign Up / Login
+                                                                    </h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                    ...
+                                                            </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                                        Close
+                                                                    </button>
+                                                                        <button type="button" class="btn btn-primary">
+                                                                            Save changes
+                                                                        </button>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- modal end -->
+                    </ul>
+                </div>
+            </div>
+        </div>		
+        <!-- Navbar end -->
+        
+        {{{ body }}}
+	</body>
+</html>
