@@ -7,7 +7,9 @@ var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 
 //connect to mongoose
-mongoose.connect("mongodb://localhost/mongoscraperDB");
+// mongoose.connect("mongodb://localhost/mongoscraperDB");
+mongoose.connect("mongodb://heroku_2rc7mwqt:l4chitpcbdd931gdvg2oke0po0@ds113282.mlab.com:13282/heroku_2rc7mwqt");
+
 var db = mongoose.conection;
 
 var port = process.env.PORT || 3000;
