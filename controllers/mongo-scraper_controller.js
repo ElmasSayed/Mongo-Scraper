@@ -4,6 +4,7 @@ var request = require('request');
 var helpers = require('handlebars-helpers')();
 var cheerio = require("cheerio");
 var scrapedResult = [];
+var savedArticles = [];
 var Article = require("../models/articles");
 // ------------------------------
 router.get("/", function(req, res) {
@@ -16,8 +17,9 @@ router.get("/scrape", function(req, res) {
     var hbsObject = { pageTitle: "scraped articles", articles: [] };
 
     request("https://www.cnbc.com/technology/", function(error, response, html) {
-        console.log("************* Scrape Started**********************")
 
+        console.log("************* Scrape Started**********************")
+        scrapedResult = [];
         var $ = cheerio.load(html);
         $("div.cnbcnewsstory").each(function(i, element) {
             var divheadline = $(this).find("div.headline");
@@ -51,30 +53,43 @@ router.post("/save", function(req, res) {
 router.get("/save/:index", function(req, res) {
     var article = scrapedResult[req.params.index];
     //res.send(article);
-    Article.saveArticle(article, function(err, article) {
+    Article.saveArticle(article, function(err, articles) {
         if (err) {
             throw err;
         }
-        var articles = Article.getArticles();
-        var hbsObject = { pageTitle: "my saved articles", articles: articles };
-        res.render("save", hbsObject);
+        res.redirect("/savedarticles");
     });
+
+})
+
+router.get("/delete/:index", function(req, res) {
+    var article = savedArticles[req.params.index];
+    //res.send(article);
+    Article.deleteArticle(article, function(err, articles) {
+        if (err) {
+            throw err;
+        }
+        res.redirect("/savedarticles");
+    });
+
 })
 
 // -------------Going to Saved articles route-------------------
 
 router.get("/savedarticles", function(req, res) {
+    // Article.findOne(function(err, articles) {
     Article.getArticles(function(err, articles) {
         if (err) {
             throw err;
         }
-
+        savedArticles = articles;
         var hbsObject = { pageTitle: "My Saved Articles", articles: articles };
         res.render("savedarticles", hbsObject);
-    })
+    });
 })
 
-// ------------------------------------------
+//EXPORT THE ROUTER TO BE USED ELSEWHERE.
+//==============================
 module.exports = router;
 
 // ----------------------------------------------------------------------------

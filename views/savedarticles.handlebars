@@ -5,26 +5,53 @@
             <div class="row">
    
             {{#each articles}}  
-                        <div id="article" class="subject-article-box animated">
-                            <a href="{{this.link}}" target="_blank" class="subject-article-link">
-                                <img src="{{this.imageUrl}}" class="subject-article-img">
-                                <p class="subject-article-description">{{this.title}}</p> 
-                            </a>
-                            <div class="subject-article-like-box">
-                                <a href="/save/{{@index}}">
-                                    <img class="subject-article-like" src="http://www.freeiconspng.com/uploads/heart-png-15.png"/>
-                                </a>
-                            </div>  
-                        </div> 
-                        {{!--<div class="subject-article-like-box"  >
-                            <form action="/save" method="POST">                      
-                                <input type="hidden" id="title" value="{{title}}">
-                                <input type="hidden" id="link" value="{{link}}">
-                                <input type="hidden" id="imageUrl" value="{{imageUrl}}">
-                                <button type="submit" id="saveArticle" class="btn btn-warning" style="margin-left: 15px;">Save</button>
-                            </form>     
-                        </div>  --}}
-              {{/each}}   
+                <div id="article" class="subject-article-box animated">
+                    <a href="{{this.link}}" target="_blank" class="subject-article-link">
+                        <img src="{{this.imageUrl}}" class="subject-article-img">
+                        <p class="subject-article-description">{{this.title}}</p> 
+                    </a>
+                    <div class="subject-article-like-box">
+                        <a href="/delete/{{@index}}">
+                            <img class="subject-article-like" style="height:35px; width:35px;" src="https://maxcdn.icons8.com/Share/icon/p1em/Editing//trash1600.png"/>
+                        </a>
+                        <a> {{!--href="/comment/{{@index}}"--}}
+                            <img class="subject-article-like" style="height:35px; width:30px;" src="http://findicons.com/files/icons/2315/default_icon/258/cloud.png"  data-toggle="modal" data-target="#myModal"/>
+                        </a>
+                    </div>  
+                </div> 
+                {{!--<div class="subject-article-like-box"  >
+                    <form action="/save" method="POST">                      
+                        <input type="hidden" id="title" value="{{title}}">
+                        <input type="hidden" id="link" value="{{link}}">
+                        <input type="hidden" id="imageUrl" value="{{imageUrl}}">
+                        <button type="submit" id="saveArticle" class="btn btn-warning" style="margin-left: 15px;">Save</button>
+                    </form>     
+                </div>  --}}
+              {{/each}}
     </div>
 </div>
  
+
+{{!--Comment- Modal --}}
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="text-align:center;background-color:black; color:white;border:solid;border-color:white;border-width:10px;border-radius:5px;">
+                <button type="button" class="close" data-dismiss="modal" style="background-color:white;width:40px;height:40px;">X</button>
+                <h4 class="modal-title">Notes</h4>
+            </div>
+            <div class="modal-body" style="height:200px; text-align:left;">
+                <div>  
+                    <input style="background-color:white;height:100px;width:450px;"></input>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 20px;">Submit</button>
+                </div>  
+            </div>
+            <div class="modal-footer" style="text-align:right; background-color:black; color:white;border:solid; border-color:white; border-width:10px;">
+                <button type="button" class="btn btn-danger" style="height:30px;" >Delete</button>
+                {{!--<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>--}}
+            </div>
+        </div>
+    </div>
+</div>
+{{!--modal ends--}}

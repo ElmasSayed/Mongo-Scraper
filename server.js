@@ -9,8 +9,6 @@ var mongoose = require("mongoose");
 //connect to mongoose
 mongoose.connect("mongodb://localhost/mongoscraperDB");
 var db = mongoose.conection;
-// console.log(db.getCollections('articles').find({}));
-
 
 var port = process.env.PORT || 3000;
 var app = express();
